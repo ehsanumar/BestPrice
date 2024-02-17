@@ -14,18 +14,17 @@ class CompanyPrice extends Model
 
     protected $fillable = [
         'message',
-        'price',
         'company_id',
         'pharmacy_requests_id'
     ];
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class());
+        return $this->belongsTo(User::class, 'company_id');
     }
 
     public function pharmacyPrice(): BelongsTo
     {
-        return $this->belongsTo(pharmacyRequest::class());
+        return $this->belongsTo(pharmacyRequest::class);
     }
 }

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('brand');
+            $table->string('image');
             $table->foreignId('pharmacy_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });

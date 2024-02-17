@@ -18,11 +18,11 @@ class RequestMedicinePharmacy extends Model
 
      public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class());
+        return $this->belongsTo(User::class,'pharmacy_id');
     }
 
     public function pharmacyPrice(): BelongsTo
     {
-        return $this->belongsTo(CompanyProductes::class());
+        return $this->belongsTo(CompanyProductes::class);
     }
 }

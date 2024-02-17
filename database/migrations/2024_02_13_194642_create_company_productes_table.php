@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('brand');
             $table->integer('price');
+            $table->longText('details');
+            $table->string('image');
             $table->foreignId('company_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });

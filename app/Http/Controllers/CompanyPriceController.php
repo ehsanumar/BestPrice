@@ -12,7 +12,6 @@ class CompanyPriceController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -28,7 +27,16 @@ class CompanyPriceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comment = $request->validate([
+            'message' => ['string', 'min:3'],
+            'pharmacy_requests_id' => ['numeric', 'required'],
+        ]);
+        $comment = CompanyPrice::create([
+            'message' => $comment['message'],
+            'company_id' => auth()->id(),
+            'pharmacy_requests_id' => $comment['pharmacy_requests_id'],
+        ]);
+        return back();
     }
 
     /**

@@ -12,8 +12,18 @@
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-text-input id="email" class="block mt-1 w-full " type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+
+        <!-- Type -->
+        <div class="mt-4">
+            <x-input-label for="type" :value="__('type')" />
+            <select class="block mt-1 w-full"  name="type" :value="old('type')" required autocomplete="username">
+            <option value="pharmacy" selected>Pharmacy</option>
+            <option value="company">Company</option>
+            </select>
+            <x-input-error :messages="$errors->get('type')" class="mt-2" />
         </div>
 
         <!-- Password -->

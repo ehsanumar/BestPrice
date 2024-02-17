@@ -12,7 +12,7 @@ class RequestMedicinePharmacyController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -28,7 +28,17 @@ class RequestMedicinePharmacyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comment= $request->validate([
+            'message' => ['string','min:3'],
+            'product_id' => ['numeric','required'],
+        ]);
+        $comment=RequestMedicinePharmacy::create([
+            'message' => $comment['message'],
+            'pharmacy_id' => auth()->id(),
+            'product_id' =>$comment['product_id'],
+        ]);
+        return back();
+
     }
 
     /**
@@ -58,8 +68,9 @@ class RequestMedicinePharmacyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(RequestMedicinePharmacy $requestMedicinePharmacy)
+    public function destroy($id)
     {
-        //
+        RequestMedicinePharmacy::findOrFail($id)->delete();
+        return back();
     }
 }

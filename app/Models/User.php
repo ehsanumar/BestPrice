@@ -51,15 +51,15 @@ class User extends Authenticatable
     ];
 
     public function companyProductes() :HasMany{
-        return $this->hasMany(CompanyProductes::class());
+        return $this->hasMany(CompanyProductes::class);
     }
     public function pharmacyRequist() :HasMany{
-        return $this->hasMany(pharmacyRequest::class());
+        return $this->hasMany(pharmacyRequest::class);
     }
     public function requestMedicinePharmacy() :HasMany{
-        return $this->hasMany(RequestMedicinePharmacy::class());
+        return $this->hasMany(RequestMedicinePharmacy::class);
     }
     public function companyPrice() :HasMany{
-        return $this->hasMany(CompanyPrice::class());
+        return $this->hasMany(CompanyPrice::class);
     }
 }

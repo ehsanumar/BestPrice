@@ -17,16 +17,18 @@ class CompanyProductes extends Model
         'name',
         'brand',
         'price',
+        'image',
+        'details',
         'company_id',
     ];
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class());
+        return $this->belongsTo(User::class,'company_id');
     }
 
     public function pharmacyPrice(): HasMany
     {
-        return $this->hasMany(RequestMedicinePharmacy::class());
+        return $this->hasMany(RequestMedicinePharmacy::class);
     }
 }
