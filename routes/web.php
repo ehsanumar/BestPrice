@@ -29,9 +29,6 @@ Route::get('/', function () {
 Route::get('/productes',[CompanyProductesController::class,'Productes'])->name('productes');
 Route::get('/product/{id}',[CompanyProductesController::class,'ProductesDetails'])->name('productesDetails');
 
-Route::get('/requests',[PharmacyRequestController::class,'requestes'])->name('requestes');
-Route::get('/request/{id}',[PharmacyRequestController::class,'RequestDetails'])->name('request.Details');
-
 Route::group(['middleware' => ['role:super-admin' ,'auth']], function () {
     Route::resource('user', UserController::class)->only('index','update','destroy','company');
     Route::get('company/users',[UserController::class,'company'])->name('company.users');
@@ -39,6 +36,8 @@ Route::group(['middleware' => ['role:super-admin' ,'auth']], function () {
 });
 Route::group(['middleware' => ['role:company|super-admin', 'auth']], function () {
     Route::resource('company', CompanyProductesController::class)->only('store', 'destroy','index');
+    Route::get('/requests', [PharmacyRequestController::class, 'requestes'])->name('requestes');
+    Route::get('/request/{id}', [PharmacyRequestController::class, 'RequestDetails'])->name('request.Details');
 });
 Route::group(['middleware' => ['role:pharmacy|super-admin', 'auth']], function () {
     Route::resource('pharmacy', PharmacyRequestController::class)->only('store','update', 'destroy','index');

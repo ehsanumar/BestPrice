@@ -26,7 +26,7 @@
 
                     <div class="flex mb-4 gap-4">
                         <div>
-                            <span class="font-bold text-gray-700 dark:text-gray-300">Company:</span>
+                            <span class="font-bold text-gray-700 dark:text-gray-300">Pharmacy:</span>
                             <span class="text-gray-600 dark:text-gray-300">{{ $requestes->user->name }}</span>
                         </div>
 

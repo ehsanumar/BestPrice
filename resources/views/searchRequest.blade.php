@@ -33,7 +33,7 @@
                 </select>
         </form>
     </div>
-@empty($records)
+@empty($result)
     <div class="text-center mx-auto w-1/2 mt-8 bg-red-600 px-10 py-6 rounded">
             <h1 class="text-white text-xl ">
                 Sorry we couldn't find anything. Search again
