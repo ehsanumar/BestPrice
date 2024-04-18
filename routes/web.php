@@ -22,7 +22,7 @@ use App\Http\Controllers\SortAndSearchRequestController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::view('/view','view');
 Route::get('/', function () {
     return view('welcome');
 });
